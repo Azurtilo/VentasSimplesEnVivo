@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "104410843303",
+    "project_id": "ventassimplesenvivo-82a6a",
+    "storage_bucket": "ventassimplesenvivo-82a6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:104410843303:android:083a163663d247af523382",
+        "android_client_info": {
+          "package_name": "cl.acuna.ventassimplesenvivo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj20A7Si0H1bJka234uTMip1_VXCmDKpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
