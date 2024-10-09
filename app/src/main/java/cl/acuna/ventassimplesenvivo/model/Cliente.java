@@ -1,15 +1,14 @@
 package cl.acuna.ventassimplesenvivo.model;
 
-public class cliente {
+public class Cliente {
 
-    public String uid;
-    public String Nombre;
-    public String Apellido;
-    public String Telefono;
-    public String Direccion;
+    private String uid;
+    private String Nombre;
+    private String Apellido;
+    private String Telefono;
+    private String Direccion;
 
-    //contructor
-    public cliente() {
+    public Cliente() {
     }
 
     public String getUid() {

@@ -38,5 +38,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation 'com.google.firebase:firebase-database:18.0.1'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation platform('com.google.firebase:firebase-bom:33.4.0')
 }

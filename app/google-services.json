@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "104410843303",
-    "project_id": "ventassimplesenvivo-82a6a",
-    "storage_bucket": "ventassimplesenvivo-82a6a.appspot.com"
+    "project_number": "916793381085",
+    "firebase_url": "https://ventassimplesenvivo-18d23-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ventassimplesenvivo-18d23",
+    "storage_bucket": "ventassimplesenvivo-18d23.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:104410843303:android:083a163663d247af523382",
+        "mobilesdk_app_id": "1:916793381085:android:3debfff304c5488a318b34",
         "android_client_info": {
           "package_name": "cl.acuna.ventassimplesenvivo"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAj20A7Si0H1bJka234uTMip1_VXCmDKpI"
+          "current_key": "AIzaSyDK8Pyr_sgqlvt5On31Du0NCtagwTDfZtk"
         }
       ],
       "services": {

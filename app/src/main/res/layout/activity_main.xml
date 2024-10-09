@@ -6,36 +6,256 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controller.MainActivity">
-
+    tools:context=".MainActivity">
+    <!--PRIMER LAYOUT-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:orientation="vertical">
-
+        <!-- FILA NOMBRE -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- TEXTVIEW NOMBRE-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Nombre:"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- EDITTEXT NOMBRE-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true">
+
+                        <EditText
+                            android:id="@+id/input_nombre"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:inputType="text">
+
+                        </EditText>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
-
+        <!-- FILA APELLIDO -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- TEXTVIEW USUARIO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Apellido:"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- EDITTEXT APELLIDO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true">
+
+                        <EditText
+                            android:id="@+id/input_apellido"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:inputType="text">
+
+                        </EditText>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
+        <!-- FILA TELEFONO -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- TEXTVIEW TELEFONO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Telefono:"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- EDITTEXT TELEFONO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true">
+
+                        <EditText
+                            android:id="@+id/input_telefono"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:inputType="phone">
+
+                        </EditText>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <!-- FILA DIRECCION -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- TEXTVIEW DIRECCION-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Direccion:"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- EDITTEXT DIRECCION-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="160dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true">
+
+                        <EditText
+                            android:id="@+id/input_direccion"
+                            android:layout_width="150dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:inputType="text">
+
+                        </EditText>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3">
-
-    </LinearLayout>
-
+    <!--SEGUNDO LAYOUT-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -46,11 +266,13 @@
             android:layout_height="match_parent">
 
             <Button
+                android:id="@+id/boton_guardar_datos_cliente"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
                 android:layout_centerInParent="true"
-                android:id="@+id/boton_menu_cliente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="menu cliente" />
+                android:text="Guardar">
+
+            </Button>
         </RelativeLayout>
     </LinearLayout>
 
