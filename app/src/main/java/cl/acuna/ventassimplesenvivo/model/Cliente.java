@@ -53,6 +53,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return Nombre;
+        return Nombre + Telefono;
     }
 }
