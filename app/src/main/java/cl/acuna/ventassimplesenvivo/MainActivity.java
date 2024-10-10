@@ -2,6 +2,7 @@ package cl.acuna.ventassimplesenvivo;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    Cliente clienteSeleccionado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +54,37 @@ public class MainActivity extends AppCompatActivity {
         listV_clientes = findViewById(R.id.lv_datos_clientes);
         Button botonGuardarDatosCliente = (Button) findViewById(R.id.boton_guardar_datos_cliente);
 
-        inicializarDatabase();
+        Button botonEditarDatosCliente = (Button) findViewById(R.id.boton_editar_datos_cliente);
+
+        Button botonEliminarrDatosCliente = (Button) findViewById(R.id.boton_eliminar_datos_cliente);
+
+        inicializarFirebase();
         listarDatos();
 
+        listV_clientes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                clienteSeleccionado = (Cliente) parent.getItemAtPosition(position);
+                nombreIngresado.setText(clienteSeleccionado.getNombre());
+                apellidoIngresado.setText(clienteSeleccionado.getApellido());
+                telefonoIngresado.setText(clienteSeleccionado.getTelefono());
+                direccionIngresada.setText(clienteSeleccionado.getDireccion());
+            }
+        });
+
+        botonEditarDatosCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cliente c = new Cliente();
+                c.setUid(clienteSeleccionado.getUid());
+                c.setNombre(nombreIngresado.getText().toString().trim());
+                c.setApellido(apellidoIngresado.getText().toString().trim());
+                c.setTelefono(telefonoIngresado.getText().toString().trim());
+                c.setDireccion(direccionIngresada.getText().toString().trim());
+                databaseReference.child("Cliente").child(c.getUid()).setValue(c);
+                Toast.makeText(MainActivity.this, "Actualizado", Toast.LENGTH_SHORT).show();
+            }
+        });
         botonGuardarDatosCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,17 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 String telefono = telefonoIngresado.getText().toString();
                 String direccion = direccionIngresada.getText().toString();
                 if (nombre.equals("") || apellido.equals("") || telefono.equals("") || direccion.equals("")) {
-                    if (nombre.equals("")) {
-                        nombreIngresado.setError("Required");
-                    } else if (apellido.equals("")) {
-                        apellidoIngresado.setError("Required");
-                    } else if (telefono.equals("")) {
-                        telefonoIngresado.setError("Required");
-                    } else if (direccion.equals("")) {
-                        direccionIngresada.setError("Required");
-                    } else {
-                        return;
-                    }
+                    validarDatos();
                 } else {
                     Cliente c = new Cliente();
                     c.setUid(UUID.randomUUID().toString());
@@ -82,14 +103,35 @@ public class MainActivity extends AppCompatActivity {
                     c.setDireccion(direccion);
                     databaseReference.child("Cliente").child(c.getUid()).setValue(c);
                     Toast.makeText(MainActivity.this, "Agregado ", Toast.LENGTH_SHORT).show();
-                    nombreIngresado.setText("");
-                    apellidoIngresado.setText("");
-                    telefonoIngresado.setText("");
-                    direccionIngresada.setText("");
+                    limpiarCajas();
 
                 }
             }
         });
+    }
+
+    private void limpiarCajas() {
+        nombreIngresado.setText("");
+        apellidoIngresado.setText("");
+        telefonoIngresado.setText("");
+        direccionIngresada.setText("");
+    }
+
+    private void validarDatos() {
+        String nombre = nombreIngresado.getText().toString();
+        String apellido = apellidoIngresado.getText().toString();
+        String telefono = telefonoIngresado.getText().toString();
+        String direccion = direccionIngresada.getText().toString();
+
+        if (nombre.equals("")) {
+            nombreIngresado.setError("Required");
+        } else if (apellido.equals("")) {
+            apellidoIngresado.setError("Required");
+        } else if (telefono.equals("")) {
+            telefonoIngresado.setError("Required");
+        } else if (direccion.equals("")) {
+            direccionIngresada.setError("Required");
+        }
     }
 
     private void listarDatos() {
@@ -97,11 +139,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listClient.clear();
-                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Cliente c = objSnapshot.getValue(Cliente.class);
                     listClient.add(c);
 
-                    arrayAdapterCliente = new ArrayAdapter<Cliente>(MainActivity.this, android.R.layout.simple_list_item_1,listClient);
+                    arrayAdapterCliente = new ArrayAdapter<Cliente>(MainActivity.this, android.R.layout.simple_list_item_1, listClient);
                     listV_clientes.setAdapter(arrayAdapterCliente);
 
                 }
@@ -116,9 +158,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void inicializarDatabase() {
+    private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
+        //firebaseDatabase.setPersistenceEnabled(true);
         databaseReference = firebaseDatabase.getReference();
     }
 }

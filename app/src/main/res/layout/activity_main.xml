@@ -259,26 +259,62 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="6">
+        android:layout_weight="8"
+        android:orientation="horizontal">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/boton_guardar_datos_cliente"
                 android:layout_width="100sp"
                 android:layout_height="50sp"
                 android:layout_centerInParent="true"
-                android:text="Guardar">
+                android:text="Guardar"
+                android:backgroundTint="@color/orange">
 
             </Button>
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/boton_editar_datos_cliente"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_centerInParent="true"
+                android:text="Editar">
+
+            </Button>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/boton_eliminar_datos_cliente"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_centerInParent="true"
+                android:text="Eliminar"
+                android:backgroundTint="@color/blue">
+
+            </Button>
+        </RelativeLayout>
+
     </LinearLayout>
+    <!--TERCER LAYOUT-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="6">
+
         <ListView
             android:id="@+id/lv_datos_clientes"
             android:layout_width="match_parent"
