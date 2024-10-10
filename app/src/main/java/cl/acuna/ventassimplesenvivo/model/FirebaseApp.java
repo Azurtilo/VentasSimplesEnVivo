@@ -1,4 +1,4 @@
-package cl.acuna.ventassimplesenvivo;
+package cl.acuna.ventassimplesenvivo.model;
 
 import com.google.firebase.database.FirebaseDatabase;
 

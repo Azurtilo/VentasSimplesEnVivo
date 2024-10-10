@@ -1,4 +1,4 @@
-package cl.acuna.ventassimplesenvivo;
+package cl.acuna.ventassimplesenvivo.controller;
 
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import cl.acuna.ventassimplesenvivo.R;
 import cl.acuna.ventassimplesenvivo.model.Cliente;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button botonEditarDatosCliente = (Button) findViewById(R.id.boton_editar_datos_cliente);
 
-        Button botonEliminarrDatosCliente = (Button) findViewById(R.id.boton_eliminar_datos_cliente);
+        Button botonEliminarDatosCliente = (Button) findViewById(R.id.boton_eliminar_datos_cliente);
 
         inicializarFirebase();
         listarDatos();
@@ -72,6 +73,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        botonEliminarDatosCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cliente c = new Cliente();
+                c.setUid(clienteSeleccionado.getUid());
+                databaseReference.child("Cliente").child(c.getUid()).removeValue();
+                Toast.makeText(MainActivity.this, "Eliminado", Toast.LENGTH_SHORT).show();
+                limpiarCajas();
+            }
+        });
+
         botonEditarDatosCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 c.setDireccion(direccionIngresada.getText().toString().trim());
                 databaseReference.child("Cliente").child(c.getUid()).setValue(c);
                 Toast.makeText(MainActivity.this, "Actualizado", Toast.LENGTH_SHORT).show();
+                limpiarCajas();
             }
         });
         botonGuardarDatosCliente.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     c.setTelefono(telefono);
                     c.setDireccion(direccion);
                     databaseReference.child("Cliente").child(c.getUid()).setValue(c);
-                    Toast.makeText(MainActivity.this, "Agregado ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Agregado", Toast.LENGTH_SHORT).show();
                     limpiarCajas();
 
                 }
